@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post Project</title>
+    <div th:insert="fragments/styling :: head-style" ></div>
+</head>
+<body style="background-color:lightgrey">
+<div th:insert="fragments/navbar.html :: navbar" ></div>
+<div>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Entry</th>
+        </tr>
+        <tr th:each ="note : ${notes}">
+            <td th:utext="${note.title}">...</td>
+            <td th:utext="${note.body}">...</td>
+        </tr>
+    </table>
+</div>
+<div th:insert="fragments/styling :: body-links"></div>
+</body>
+</html>

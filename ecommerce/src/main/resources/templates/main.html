@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments :: head"></head>
+<body>
+<div th:replace="fragments :: navbar" ></div>
+
+<main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Tech Talent Store</h1>
+            <p>We Want Your Money. You Want A Phone. Let's Make A Deal.</p>
+            <p>Summer Sale! All Phones 50% Off!!</p>
+            <p style="font-size:60%; margin-top:-1%" >Disclaimer: Offer not valid for people who have read this disclaimer.</p>
+            <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div th:each = "product : ${products}" class="card mb-3 small-product-card" style="width:25%">
+                <div >
+                    <img th:alt="${product.name}" th:src="@{${product.image}}" class="card-img" style="max-height: 100%; object-fit: cover;" />
+                </div>
+                <div >
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h4 th:text="${product.name}" style="margin-bottom: 0;"></h4>
+<!--                            <small th:text="${product.getBrand()}"></small>-->
+                        </div>
+                        <h5 class="card-text" th:text="${#numbers.formatCurrency(product.cost)}"></h5>
+                        <p class="card-text" th:text="${product.description}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:replace="fragments :: footer"></footer>
+</body>
+</html>

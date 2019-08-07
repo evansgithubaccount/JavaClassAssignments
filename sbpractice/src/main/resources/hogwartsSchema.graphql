@@ -1,0 +1,32 @@
+type Query {
+    studentById(id : ID): Student
+}
+
+type Student {
+    id : ID
+    name : String
+    age : Int
+    year : Int
+    course : Course
+    house : House
+    pureblood : Boolean
+}
+
+type Professor {
+    id : ID
+    name : String
+    house : House
+}
+
+type Course {
+    id : ID
+    name : String
+    studentCount : Int
+    prof : Professor
+}
+
+type House {
+    name : String
+    studentCount : Int
+    points : Int
+}

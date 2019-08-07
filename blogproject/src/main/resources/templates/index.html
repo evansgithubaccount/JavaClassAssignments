@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post Project</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css">
+    <div th:insert="fragments/styling :: head-style" ></div>
+</head>
+<body style="background-color:lightgrey">
+<div th:insert="fragments/navbar.html :: navbar" ></div>
+<h1 style="text-align:center">
+    Welcome To Bob Loblaw's Law Blog
+</h1>
+
+<p>Use the below form to create a new blog post</p>
+
+<form action="#" th:action="@{/create}" th:object="${blogPost}" method="post">
+    <table>
+        <tr><td>Title: </td><td><input type="text" class="form-control" name="title" th:field="*{title}" ></td></tr>
+        <tr><td>Author: </td><td><input type="text"  class="form-control" name="author" th:field="*{author}"></td> </tr>
+        <tr><td style="vertical-align:top">Entry: </td><td><textarea id="entryInput"  class="form-control" name="entry" th:field="*{blogEntry}"></textarea></td></tr>
+    </table>
+    <button type="submit" value="submit" style="margin-left:80px">Submit</button>
+</form>
+<div th:insert="fragments/styling :: body-links"></div>
+</body>
+</html>
